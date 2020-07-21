@@ -59,20 +59,26 @@ jobs:
         working-directory: ./android/
         run: ./gradlew assembleDebug && ./gradlew assembleRelease
 
-      - name: Upload dev APK
+#       - name: Upload all artifact
+#         uses: actions/upload-artifact@v2
+#         with:
+#           name: temp-artifact
+#           path: ./android/app/build/outputs/
+                    
+      - name: Upload debug APK
         uses: actions/upload-artifact@v2
         with:
-          name: temp-artifact
-          path: ./android/app/build/outputs/
-                    
-      - name: Upload dev APK
-        uses: actions/upload-artifact@v1
-        with:
-          name: app-dev
-          path: android/app/build/outputs/apk/debug/app-debug.apk
-
-      - name: Upload release bundle
-        uses: actions/upload-artifact@v1
+          name: app-debug
+          path: android/app/build/outputs/apk/debug
+          
+      - name: Upload release APK
+        uses: actions/upload-artifact@v2
         with:
           name: app-release
-          path: ./android/app/build/outputs/bundle/release/app.aab
+          path: android/app/build/outputs/apk/release
+
+#       - name: Upload release bundle
+#         uses: actions/upload-artifact@v1
+#         with:
+#           name: app-release
+#           path: ./android/app/build/outputs/bundle/release/app.aab
