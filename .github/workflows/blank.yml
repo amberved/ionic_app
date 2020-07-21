@@ -33,9 +33,12 @@ jobs:
       - name: Install app dependencies
         run: npm install
         
+      - name: ng cmd
+        run: ng add @ionic/angular
+                
       - name: Build ng app
         run: ng build --prod
-        
+         
       - name: Add Android platform
         run: ionic capacitor platform add android@latest
 
