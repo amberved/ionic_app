@@ -57,24 +57,13 @@ jobs:
       - name: Generate the Android App Bundle
 #         working-directory: ./platforms/android/
         working-directory: ./android/
-        run: ./gradlew assembleDebug
-
-#       - name: Create Zip
-#         uses: montudor/action-zip@v0.1.0
-#         with:
-#           args: zip -qq -r ./dir.zip ./app
-          
-#       - name: Upload dev Zip
-#         uses: actions/upload-artifact@v1
-#         with:
-#           name: dir
-#           path: ./dir.zip
+        run: ./gradlew assembleDebug && ./gradlew assembleRelease
 
       - name: Upload dev APK
         uses: actions/upload-artifact@v2
         with:
           name: temp-artifact
-          path: ./android/
+          path: ./android/app/build/outputs/
                     
       - name: Upload dev APK
         uses: actions/upload-artifact@v1
