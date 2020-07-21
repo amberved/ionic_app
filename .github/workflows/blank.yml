@@ -24,7 +24,7 @@ jobs:
       - name: Setup Angular
         run: npm install -g @ionic/angular@latest
           
-      - name: Install Cordova
+      - name: Install Capacitor
         run: npm install -g capacitor
 
       - name: Install Ionic
@@ -32,7 +32,10 @@ jobs:
 
       - name: Install app dependencies
         run: npm install
-
+        
+      - name: Build ng app
+        run: ng build --prod
+        
       - name: Add Android platform
         run: ionic capacitor platform add android@latest
 
