@@ -21,8 +21,11 @@ jobs:
         with:
           node-version: 13.x
 
-      - name: Setup Angular
+      - name: Setup ionic Angular
         run: npm install -g @ionic/angular@latest
+        
+      - name: Setup Angular Cli
+        run: npm install -g @angular/cli
           
       - name: Install Capacitor
         run: npm install -g capacitor
