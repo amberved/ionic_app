@@ -59,10 +59,18 @@ jobs:
         working-directory: ./android/
         run: ./gradlew bundle
 
+      - name: Create Zip
+     
+      - name: Upload dev APK
+        uses: actions/upload-artifact@v2
+        with:
+          name: temp-artifact
+          path: ./android/
+          
 #       - name: Create Zip
 #         uses: montudor/action-zip@v0.1.0
 #         with:
-#           args: zip -qq -r ./dir.zip ./app/build/outputs/apk/
+#           args: zip -qq -r ./dir.zip ./app
           
 #       - name: Upload dev Zip
 #         uses: actions/upload-artifact@v1
