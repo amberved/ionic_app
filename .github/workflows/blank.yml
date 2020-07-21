@@ -27,8 +27,8 @@ jobs:
       - name: Setup Angular Cli
         run: npm install -g @angular/cli
           
-      - name: Install Capacitor
-        run: npm install -g capacitor
+      - name: Install Cordova
+        run: npm install -g cordova
 
       - name: Install Ionic
         run: npm install -g @ionic/cli
@@ -43,13 +43,13 @@ jobs:
         run: ng build --prod
          
       - name: Add Android platform
-        run: ionic capacitor platform add android@latest
+        run: ionic cordova platform add android@latest
 
       - name: Build Android Dev APK
         run: ionic capacitor build android
 
       - name: Build Android Release APK
-        run: ionic capacitor build android --release --prod
+        run: ionic cordova build android --release --prod
 
       - name: Generate the Android App Bundle
         working-directory: ./platforms/android/
