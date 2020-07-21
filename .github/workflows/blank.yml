@@ -59,6 +59,17 @@ jobs:
         working-directory: ./android/
         run: ./gradlew bundle
 
+      - name: zip
+        uses: montudor/action-zip@v0.1.0
+        with:
+          args: zip -qq -r ./dir.zip android/app/build/outputs/apk/
+          
+      - name: Upload dev Zip
+        uses: actions/upload-artifact@v1
+        with:
+          name: dir
+          path: ./dir.zip
+          
       - name: Upload dev APK
         uses: actions/upload-artifact@v1
         with:
